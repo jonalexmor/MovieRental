@@ -8,10 +8,14 @@ $(document).ready(function () {
     });
 
     getUsuario().then(function () {
-
+        
+        $("#mi-perfil-btn").attr("href","profile.html?username=" + username);
+        
         $("#user-saldo").html(user.saldo.toFixed(2) + "$");
 
         getPeliculas(false, "ASC");
+
+        $("#ordenar-genero").click(ordenarPeliculas);
     });
 });
 
@@ -106,4 +110,3 @@ function mostrarPeliculas(peliculas) {
     });
     $("#peliculas-tbody").html(contenido);
 }
-
